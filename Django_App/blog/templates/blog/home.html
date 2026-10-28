@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %} {% block content %}
+
+<h1>Welcome to INF601 Blog</h1>
+
+<p>This is a sample blog application built with Django and Bootstrap.</p>
+
+<button
+  class="btn btn-primary"
+  dat
+  -bs-toggle="modal"
+  data-bs-target="#aboutModal"
+>
+  About Site
+</button>
+
+<div class="modal fade" id="aboutModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">About This Blog</h5>
+      </div>
+
+      <div class="modal-body">Created for Mini Project 6.</div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

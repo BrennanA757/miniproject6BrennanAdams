@@ -1,6 +1,11 @@
-from django.shortcuts import render, redirect
+# INF601 - Advanced Programming in Python
+# Brennan Adams
+# Mini Project 6
+
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login
-from .forms import RegisterForm
+from .forms import RegisterForm, ContactForm, PostForm
+from .models import Post
 
 
 def register_view(request):

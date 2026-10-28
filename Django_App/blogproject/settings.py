@@ -1,3 +1,7 @@
+# INF601 - Advanced Programming in Python
+# Brennan Adams
+# Mini Project 6
+
 """
 Django settings for blog project.
 
