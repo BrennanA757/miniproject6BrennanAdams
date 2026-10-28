@@ -1,32 +1,24 @@
-from django.views import generic
-from django.utils import timezone
-from django.contrib.auth import logout
-from django.shortcuts import redirect
-
-from .models import Comment
+from django.shortcuts import render, redirect
+from django.contrib.auth import login
+from .forms import RegisterForm
 
 
-class IndexView(generic.ListView):
-    template_name = "polls/index.html"
-    context_object_name = "latest_comments_list"
+def register_view(request):
 
-    def get_queryset(self):
-        return Comment.objects.filter(pub_date__lte=timezone.now()).order_by("-pub_date")
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
 
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
 
-class LoginView(generic.DetailView):
-    model = Comment
-    template_name = "blog/auth/login.html"
+            return redirect('home')
 
+    else:
+        form = RegisterForm()
 
-class BaseView(generic.DetailView):
-    template_name = "blog/base.html"
-
-
-class RegisterView(generic.DetailView):
-    template_name = "blog/auth/register.html"
-
-
-def logout_view(request):
-    logout(request)
-    return redirect('login')
+    return render(
+        request,
+        "blog/register.html",
+        {"form": form}
+    )
