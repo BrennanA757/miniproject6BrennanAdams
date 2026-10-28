@@ -1,0 +1,25 @@
+{% load static %}
+<!doctype html>
+<title>{% block title %}{% endblock %}</title>
+<link rel="stylesheet" href="{% static 'style.css' %}" />
+
+<html lang="en">
+  <nav>
+    <h1 class="bg-black text-white">Brennan's Django Thing</h1>
+    <ul class="bg-black">
+      {% if user.is_authenticated %}
+      <li><span>{{ user.username }}</span></li>
+      <li>
+        <a href="{% url 'logout' %}">Logout</a>
+      </li>
+      {% else %}
+      <li><a href="{% url 'register' %}">Register</a></li>
+      <li><a href="{% url 'login' %}">Login</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+  <section class="content">
+    <header>{% block header %}{%endblock%}</header>
+    {%block content%}{%endblock%}
+  </section>
+</html>
