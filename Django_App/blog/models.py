@@ -1,6 +1,8 @@
+# INF601 - Advanced Programming in Python
+# Brennan Adams
+# Mini Project 6
+
 from django.db import models
-from django.utils import timezone
-from django.contrib import admin
 from django.contrib.auth.models import User
 
 

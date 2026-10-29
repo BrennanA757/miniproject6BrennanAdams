@@ -1,23 +1,11 @@
-{% extends 'blog/base.html' %}
-
-{% block content %}
+{% extends 'blog/base.html' %} {% block content %}
 
 <h2>Register</h2>
 
 <form method="POST">
+  {% csrf_token %} {{ form.as_p }}
 
-    {% csrf_token*%}
-
-    {{ form.as_p }}
-
-    <buttun
-        class="btn btn-success"
-        type="submit">
-
-        Register
-
-    </button>
-
+  <button class="btn btn-success" type="submit">Register</button>
 </form>
 
-{% endblock %}
+{% endblock %} -- password: example_password#123 username: test--
