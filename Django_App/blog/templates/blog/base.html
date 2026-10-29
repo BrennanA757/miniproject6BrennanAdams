@@ -25,7 +25,14 @@
               New Post
             </a>
 
-            <a class="btn btn-danger" href="{% url 'logout' %}"> Logout </a>
+            <form
+              action="{% url 'logout' %}"
+              method="post"
+              style="display: inline"
+            >
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
 
             {% else %}
 
